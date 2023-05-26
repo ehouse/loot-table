@@ -23,13 +23,23 @@ const Block = (props: { children: React.ReactNode }) => (
     }}>{props.children}</div>
 )
 
+const TraitChip = (props: { name: string, href: string }) => (
+    <span css={{
+        fontSize: '16px',
+        padding: '0 8px',
+        borderRadius: '32px',
+        backgroundColor: 'hsl(218, 41%, 30%)',
+        color: 'hsl(218, 41%, 74%)'
+    }}><a href={props.href}>{props.name}</a></span>
+)
+
 const LevelChip = (props: { level: string }) => (
     <div css={{
         fontSize: '20px',
         padding: '0 12px',
         borderRadius: '32px',
-        backgroundColor: '#7DE2D1',
-        color: '#339989'
+        backgroundColor: 'hsl(28, 100%, 38%)',
+        color: 'hsl(28, 100%, 90%)'
     }}>{props.level}</div>
 )
 
@@ -42,9 +52,14 @@ export function EquipmentBlock(props: { equipment: Equipment }) {
             <LevelChip level={equipment.level} />
             <h3><a href={equipment.link}>{equipment.name}</a></h3>
         </div>
-        <div>
-            {equipment.category && <span className='catagory'>{equipment.category}</span>}
-            {equipment.subcategory && <span className='catagory'> &gt; {equipment.subcategory}</span>}
+        <div css={{ display: 'flex' }}>
+            <div css={{ flexGrow: 1 }}>
+                {equipment.category && <span className='catagory'>{equipment.category}</span>}
+                {equipment.subcategory && <span className='catagory'> &gt; {equipment.subcategory}</span>}
+            </div>
+            {equipment.traits.length > 0 && <div css={{ display: 'flex', gap: '4px' }}>{
+                equipment.traits.map((trait) => { return <TraitChip {...trait} /> })
+            }</div>}
         </div>
     </Block>
 }
