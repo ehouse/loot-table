@@ -1,19 +1,21 @@
+import { useState } from 'react'
 import Head from 'next/head'
 import styles from '@/styles/Index.module.css'
-import { EquipmentBlock } from '@/components/equipment-block'
-import useSWRImmutable from 'swr'
+import useSWRImmutable from 'swr/immutable'
 import { APIGetEquipment } from "@/types/equipment";
+import { LevelSelect } from '@/components/level-select'
+import { EquipmentList } from '@/components/equipment-list'
 
-const fetcher = (url: string) => fetch(url).then(r => r.json())
+const fetcher = (args: { url: string, filter: string, book: string }) => {
+  let filterString = '?filter=' + args.filter + '&book=' + args.book
+  return fetch(args.url + filterString).then(r => r.json())
+}
 
 export default function Home() {
-  const { data, mutate } = useSWRImmutable<APIGetEquipment>('/api/getEquipment', fetcher)
+  const [levelSelect, setLevelSelect] = useState(0)
+  const { data, mutate } = useSWRImmutable<APIGetEquipment>({ url: '/api/getEquipment', filter: JSON.stringify({ level: levelSelect }), book: 'core' }, fetcher)
 
   const totalValue = data?.equipment.reduce((acc, cur) => (acc + Number(cur.price)), 0) ?? 0
-
-  data?.equipment.map((item) => {
-    console.log(item.price)
-  })
 
   return (
     <>
@@ -26,11 +28,8 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <button onClick={() => { mutate() }}>Refresh</button>
-        {data &&
-          <div>
-            {data.equipment.map((item) => (<EquipmentBlock key={item.link} equipment={item} />))}
-          </div>
-        }
+        <LevelSelect setLevel={setLevelSelect} levelSelect={levelSelect} />
+        <EquipmentList data={data} />
         <div>Total: {totalValue}</div>
       </main>
     </>

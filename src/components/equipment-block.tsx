@@ -7,7 +7,7 @@ const Block = (props: { children: React.ReactNode }) => (
         display: 'flex',
         flexDirection: 'column',
         gap: '8px',
-        padding: '16px',
+        padding: '16px 0',
         h3: {
             fontSize: '20px'
         },
@@ -50,7 +50,7 @@ export function EquipmentBlock(props: { equipment: Equipment }) {
     return <Block>
         <div className='block-title'>
             <LevelChip level={equipment.level} />
-            <h3><a href={equipment.link}>{equipment.name}</a></h3>
+            <h3><a href={equipment.link} target="_blank">{equipment.name}</a></h3>
         </div>
         <div css={{ display: 'flex' }}>
             <div css={{ flexGrow: 1 }}>
@@ -58,7 +58,7 @@ export function EquipmentBlock(props: { equipment: Equipment }) {
                 {equipment.subcategory && <span className='catagory'> &gt; {equipment.subcategory}</span>}
             </div>
             {equipment.traits.length > 0 && <div css={{ display: 'flex', gap: '4px' }}>{
-                equipment.traits.map((trait) => { return <TraitChip {...trait} /> })
+                equipment.traits.map((trait) => { return <TraitChip key={trait.name} {...trait} /> })
             }</div>}
         </div>
     </Block>
