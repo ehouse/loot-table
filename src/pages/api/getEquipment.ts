@@ -9,7 +9,7 @@ const BOOKSET = {
 }
 
 const filterBook = (equipmentList: Equipment[], bookSetKey: keyof typeof BOOKSET): Equipment[] => (
-    equipmentList.filter((entries) => (BOOKSET[bookSetKey].includes(entries.source.name)))
+    equipmentList.filter((entries) => (BOOKSET[bookSetKey].includes(entries.source)))
 )
 
 const filterLevel = (equipmentList: Equipment[], level: string): Equipment[] => (
@@ -20,7 +20,7 @@ const filterLevel = (equipmentList: Equipment[], level: string): Equipment[] => 
 
 const filterCatagory = (equipmentList: Equipment[], name: string): Equipment[] => (
     equipmentList.filter((entries) => (
-        entries.category === name
+        entries.item_category === name
     ))
 )
 

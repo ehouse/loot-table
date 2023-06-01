@@ -13,9 +13,8 @@ const fetcher = (args: { url: string, filter: string, book: string }) => {
 
 export default function Home() {
   const [levelSelect, setLevelSelect] = useState(0)
+  const [totalValue, setTotalValue] = useState(0)
   const { data, mutate } = useSWRImmutable<APIGetEquipment>({ url: '/api/getEquipment', filter: JSON.stringify({ level: levelSelect }), book: 'core' }, fetcher)
-
-  const totalValue = data?.equipment.reduce((acc, cur) => (acc + Number(cur.price)), 0) ?? 0
 
   return (
     <>
@@ -27,10 +26,10 @@ export default function Home() {
         <link rel="stylesheet" href="https://use.typekit.net/ssw0czr.css" />
       </Head>
       <main className={styles.main}>
-        <button onClick={() => { mutate() }}>Refresh</button>
+        <button onClick={() => { mutate() }} css={{ border: '0', padding: '8px 16px' }}>Refresh</button>
         <LevelSelect setLevel={setLevelSelect} levelSelect={levelSelect} />
-        <EquipmentList data={data} />
-        <div>Total: {totalValue}</div>
+        <div css={{ paddingTop: '3rem' }}>Total: {totalValue / 100} GP</div>
+        <EquipmentList data={data} setTotalValue={setTotalValue} />
       </main>
     </>
   )

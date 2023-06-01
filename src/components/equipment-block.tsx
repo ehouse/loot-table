@@ -30,10 +30,10 @@ const TraitChip = (props: { name: string, href: string }) => (
         borderRadius: '32px',
         backgroundColor: 'hsl(218, 41%, 30%)',
         color: 'hsl(218, 41%, 74%)'
-    }}><a href={props.href}>{props.name}</a></span>
+    }}><a href={'https://2e.aonprd.com' + props.href}>{props.name}</a></span>
 )
 
-const LevelChip = (props: { level: string }) => (
+const LevelChip = (props: { level: number }) => (
     <div css={{
         fontSize: '20px',
         padding: '0 12px',
@@ -50,12 +50,12 @@ export function EquipmentBlock(props: { equipment: Equipment }) {
     return <Block>
         <div className='block-title'>
             <LevelChip level={equipment.level} />
-            <h3><a href={equipment.link} target="_blank">{equipment.name}</a></h3>
+            <h3><a href={'https://2e.aonprd.com' + equipment.url} target="_blank">{equipment.name}</a></h3>
         </div>
         <div css={{ display: 'flex' }}>
             <div css={{ flexGrow: 1 }}>
-                {equipment.category && <span className='catagory'>{equipment.category}</span>}
-                {equipment.subcategory && <span className='catagory'> &gt; {equipment.subcategory}</span>}
+                {equipment.item_category && <span className='catagory'>{equipment.item_category}</span>}
+                {equipment.item_subcategory && <span className='catagory'> &gt; {equipment.item_subcategory}</span>}
             </div>
             {equipment.traits.length > 0 && <div css={{ display: 'flex', gap: '4px' }}>{
                 equipment.traits.map((trait) => { return <TraitChip key={trait.name} {...trait} /> })
