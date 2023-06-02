@@ -21,9 +21,7 @@ export default function Home() {
       <Head>
         <title>LootTable</title>
         <meta name="description" content="Quickly generate loot drops for Pathfinder 2nd Edition encounters." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="https://use.typekit.net/ssw0czr.css" />
       </Head>
       <main className={styles.main}>
         <button onClick={() => { mutate() }} css={{ border: '0', padding: '8px 16px' }}>Refresh</button>

@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Equipment } from "@/types/equipment";
+import { TraitChip } from './TraitChip';
 
 const Block = (props: { children: React.ReactNode }) => (
     <div css={{
@@ -21,16 +22,6 @@ const Block = (props: { children: React.ReactNode }) => (
             color: 'rgba(255, 255, 255, 0.7)'
         }
     }}>{props.children}</div>
-)
-
-const TraitChip = (props: { name: string, href: string }) => (
-    <span css={{
-        fontSize: '16px',
-        padding: '0 8px',
-        borderRadius: '32px',
-        backgroundColor: 'hsl(218, 41%, 30%)',
-        color: 'hsl(218, 41%, 74%)'
-    }}><a href={'https://2e.aonprd.com' + props.href}>{props.name}</a></span>
 )
 
 const LevelChip = (props: { level: number }) => (

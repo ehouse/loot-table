@@ -64,7 +64,7 @@ export default function handler(
             filterList = filterCatagory(filterList, filter['catagory'] as string)
         }
 
-        if (filter['level']) {
+        if (typeof filter['level'] !== 'undefined') {
             filterList = filterLevel(filterList, filter['level'] as string)
         }
 
