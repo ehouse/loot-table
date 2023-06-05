@@ -7,7 +7,7 @@ const MoreButton = (props: { increaseDisplayCount: () => void }) => (
     <button onClick={props.increaseDisplayCount} css={{ padding: '0px 24px', fontSize: '24px', border: '0' }}>+</button>
 )
 
-export function EquipmentList(props: { data: APIGetEquipment | undefined, setTotalValue: (arg0: number) => void }) {
+export function EquipmentList(props: { data: APIGetEquipment | undefined, refresh: () => void, setTotalValue: (arg0: number) => void }) {
     const [displayCount, setDisplayCount] = useState(5)
 
     useEffect(() => {
@@ -29,7 +29,10 @@ export function EquipmentList(props: { data: APIGetEquipment | undefined, setTot
 
     return <div css={{ paddingTop: '8px' }}>
         {props.data.equipment.slice(0, displayCount).map((item) => (<EquipmentBlock key={item.url} equipment={item} />))}
-        {displayCount < 10 && <MoreButton increaseDisplayCount={() => setDisplayCount((state) => (++state))} />}
+        <div css={{ display: 'flex', gap: '8px' }}>
+            <button onClick={props.refresh} css={{ border: '0', padding: '0px 24px', fontSize: '24px' }}>↻</button>
+            {displayCount < 10 && <MoreButton increaseDisplayCount={() => setDisplayCount((state) => (++state))} />}
+        </div>
     </div>
 
 }

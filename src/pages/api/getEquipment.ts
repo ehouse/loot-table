@@ -24,6 +24,17 @@ const filterCatagory = (equipmentList: Equipment[], name: string): Equipment[] =
     ))
 )
 
+/** Remove non-item entries from the response */
+const removeNonItems = ((equipmentList: Equipment[]): Equipment[] => (
+    equipmentList.filter((entries) => {
+        const catagoryFilter = ['Vehicles', 'Services', 'Materials']
+        if (catagoryFilter.includes(entries.item_category)) {
+            return false
+        }
+        return true
+    })
+))
+
 const filterTrait = (equipmentList: Equipment[], name: string): Equipment[] => (
     equipmentList.filter((entries) => (
         entries.traits.filter((trait) => (trait.name === name)).length > 0
@@ -67,6 +78,9 @@ export default function handler(
         if (typeof filter['level'] !== 'undefined') {
             filterList = filterLevel(filterList, filter['level'] as string)
         }
+
+        // Remove all non-items from the body response
+        filterList = removeNonItems(filterList)
 
         const responseBody = []
 

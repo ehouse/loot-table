@@ -1,5 +1,5 @@
 export function LevelSelect(props: { setLevel: (level: number) => void, levelSelect: number }) {
-    return <div css={{ paddingTop: '16px' }}>
+    return <div>
         <h3 css={{ fontSize: '20px', padding: '4px 0 4px 0' }}>Level Select</h3>
         <div css={{ display: 'flex', gap: '4px' }}>
             {Array.from({ length: 21 }, (_, i) => (i))

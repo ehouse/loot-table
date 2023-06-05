@@ -16,6 +16,8 @@ export default function Home() {
   const [totalValue, setTotalValue] = useState(0)
   const { data, mutate } = useSWRImmutable<APIGetEquipment>({ url: '/api/getEquipment', filter: JSON.stringify({ level: levelSelect }), book: 'core' }, fetcher)
 
+  const refreshData = () => { mutate() }
+
   return (
     <>
       <Head>
@@ -24,10 +26,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <button onClick={() => { mutate() }} css={{ border: '0', padding: '8px 16px' }}>Refresh</button>
         <LevelSelect setLevel={setLevelSelect} levelSelect={levelSelect} />
-        <div css={{ paddingTop: '3rem' }}>Total: {totalValue / 100} GP</div>
-        <EquipmentList data={data} setTotalValue={setTotalValue} />
+        <div css={{ paddingTop: '2rem', color: 'rgba(255,255,255,0.7)' }}>Total: {totalValue / 100} GP</div>
+        <EquipmentList data={data} refresh={refreshData} setTotalValue={setTotalValue} />
       </main>
     </>
   )

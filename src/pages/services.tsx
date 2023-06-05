@@ -3,6 +3,7 @@ import { APIGetEquipment, Equipment } from '@/types/equipment'
 import { bookCategoryItemSet } from '@/data/itemData'
 import { TraitChip } from '@/components/TraitChip';
 import { useState } from 'react';
+import Head from 'next/head'
 
 const Block = (props: { children: React.ReactNode }) => (
     <div css={{
@@ -54,15 +55,21 @@ export const getStaticProps: GetStaticProps<{ items: Equipment[] }> = () => {
 export default function Services({ items }: InferGetStaticPropsType<typeof getStaticProps>) {
     const [search, setSearch] = useState('')
 
-    return <div css={{ width: '768px', minHeight: '100vh', margin: '0 auto' }}>
-        <form css={{ display: 'flex', flexDirection: 'column', maxWidth: '20rem', gap: '4px' }}>
-            <label>Search</label>
-            <input type='search' onChange={(e) => { setSearch(e.target.value) }} value={search} />
-        </form>
-        {items.filter((service) =>
-            (service.name.includes(search))
-        ).map((service) => {
-            return <ServiceBlock service={service} />
-        })}
-    </div>
+    return <>
+        <Head>
+            <title>Services - LootTable</title>
+            <meta name="description" content="Quickly generate loot drops for Pathfinder 2nd Edition encounters." />
+            <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <div css={{ width: '768px', minHeight: '100vh', margin: '0 auto' }}>
+            <form css={{ display: 'flex', flexDirection: 'column', maxWidth: '20rem', gap: '4px' }}>
+                <label>Search</label>
+                <input type='search' onChange={(e) => { setSearch(e.target.value) }} value={search} />
+            </form>
+            {items.filter((service) =>
+                (service.name.includes(search))
+            ).map((service) => {
+                return <ServiceBlock key={service.name} service={service} />
+            })}
+        </div></>
 }
