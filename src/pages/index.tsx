@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import Head from 'next/head'
-import styles from '@/styles/Index.module.css'
 import useSWRImmutable from 'swr/immutable'
 import { APIGetEquipment } from "@/types/equipment";
 import { LevelSelect } from '@/components/level-select'
@@ -25,7 +24,7 @@ export default function Home() {
         <meta name="description" content="Quickly generate loot drops for Pathfinder 2nd Edition encounters." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
+      <main css={{ width: '768px', margin: '0 auto' }}>
         <LevelSelect setLevel={setLevelSelect} levelSelect={levelSelect} />
         <div css={{ paddingTop: '2rem', color: 'rgba(255,255,255,0.7)' }}>Total: {totalValue / 100} GP</div>
         <EquipmentList data={data} refresh={refreshData} setTotalValue={setTotalValue} />

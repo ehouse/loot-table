@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import data from '@/data/equipment.json'
-import { APIGetEquipment, Equipment } from '@/types/equipment'
+import data, { Equipment } from '@/types/equipment'
 
 const BOOKSET = {
     core: ["Core Rulebook", "Advanced Player's Guide", "Gamemastery Guide"],

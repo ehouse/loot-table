@@ -9,26 +9,27 @@ const MoreButton = (props: { increaseDisplayCount: () => void }) => (
 
 export function EquipmentList(props: { data: APIGetEquipment | undefined, refresh: () => void, setTotalValue: (arg0: number) => void }) {
     const [displayCount, setDisplayCount] = useState(5)
+    const { data, setTotalValue } = props
 
     useEffect(() => {
         // Short circuit if empty or null value
-        if (typeof props.data === 'undefined' || props.data?.equipment.length === 0) {
+        if (typeof data === 'undefined' || data?.equipment.length === 0) {
             return
         }
 
-        const totalValue = props.data.equipment.slice(0, displayCount).reduce((acc, cur) => {
+        const totalValue = data.equipment.slice(0, displayCount).reduce((acc, cur) => {
             return (acc + cur.price! ?? 0)
         }, 0)
-        props.setTotalValue(totalValue)
-    }, [props.data, displayCount])
+        setTotalValue(totalValue)
+    }, [data, displayCount])
 
 
-    if (typeof props.data === 'undefined' || props.data?.equipment.length === 0) {
+    if (typeof data === 'undefined' || data?.equipment.length === 0) {
         return <div>No Items</div>
     }
 
     return <div css={{ paddingTop: '8px' }}>
-        {props.data.equipment.slice(0, displayCount).map((item) => (<EquipmentBlock key={item.url} equipment={item} />))}
+        {data.equipment.slice(0, displayCount).map((item) => (<EquipmentBlock key={item.url} equipment={item} />))}
         <div css={{ display: 'flex', gap: '8px' }}>
             <button onClick={props.refresh} css={{ border: '0', padding: '0px 24px', fontSize: '24px' }}>↻</button>
             {displayCount < 10 && <MoreButton increaseDisplayCount={() => setDisplayCount((state) => (++state))} />}

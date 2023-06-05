@@ -1,0 +1,279 @@
+{
+    "1": {
+        "totalValue": 17500,
+        "permanentItems": {
+            "1": 2,
+            "2": 2
+        },
+        "consumableItems": {
+            "1": 3,
+            "2": 2
+        },
+        "partyCurency": 4000,
+        "additionalPerPC": 1000
+    },
+    "2": {
+        "totalValue": 30000,
+        "permanentItems": {
+            "2": 2,
+            "3": 2
+        },
+        "consumableItems": {
+            "1": 2,
+            "2": 2,
+            "3": 2
+        },
+        "partyCurency": 7000,
+        "additionalPerPC": 1800
+    },
+    "3": {
+        "totalValue": 50000,
+        "permanentItems": {
+            "3": 2,
+            "4": 2
+        },
+        "consumableItems": {
+            "2": 2,
+            "3": 2,
+            "4": 2
+        },
+        "partyCurency": 12000,
+        "additionalPerPC": 3000
+    },
+    "4": {
+        "totalValue": 85000,
+        "permanentItems": {
+            "4": 2,
+            "5": 2
+        },
+        "consumableItems": {
+            "3": 2,
+            "4": 2,
+            "5": 2
+        },
+        "partyCurency": 20000,
+        "additionalPerPC": 5000
+    },
+    "5": {
+        "totalValue": 135000,
+        "permanentItems": {
+            "5": 2,
+            "6": 2
+        },
+        "consumableItems": {
+            "4": 2,
+            "5": 2,
+            "6": 2
+        },
+        "partyCurency": 32000,
+        "additionalPerPC": 8000
+    },
+    "6": {
+        "totalValue": 200000,
+        "permanentItems": {
+            "6": 2,
+            "7": 2
+        },
+        "consumableItems": {
+            "5": 2,
+            "6": 2,
+            "7": 2
+        },
+        "partyCurency": 50000,
+        "additionalPerPC": 12500
+    },
+    "7": {
+        "totalValue": 290000,
+        "permanentItems": {
+            "7": 2,
+            "8": 2
+        },
+        "consumableItems": {
+            "6": 2,
+            "7": 2,
+            "8": 2
+        },
+        "partyCurency": 72000,
+        "additionalPerPC": 18000
+    },
+    "8": {
+        "totalValue": 400000,
+        "permanentItems": {
+            "8": 2,
+            "9": 2
+        },
+        "consumableItems": {
+            "7": 2,
+            "8": 2,
+            "9": 2
+        },
+        "partyCurency": 100000,
+        "additionalPerPC": 25000
+    },
+    "9": {
+        "totalValue": 570000,
+        "permanentItems": {
+            "9": 2,
+            "10": 2
+        },
+        "consumableItems": {
+            "8": 2,
+            "9": 2,
+            "10": 2
+        },
+        "partyCurency": 140000,
+        "additionalPerPC": 35000
+    },
+    "10": {
+        "totalValue": 800000,
+        "permanentItems": {
+            "10": 2,
+            "11": 2
+        },
+        "consumableItems": {
+            "9": 2,
+            "10": 2,
+            "11": 2
+        },
+        "partyCurency": 200000,
+        "additionalPerPC": 50000
+    },
+    "11": {
+        "totalValue": 1150000,
+        "permanentItems": {
+            "11": 2,
+            "12": 2
+        },
+        "consumableItems": {
+            "10": 2,
+            "11": 2,
+            "12": 2
+        },
+        "partyCurency": 280000,
+        "additionalPerPC": 70000
+    },
+    "12": {
+        "totalValue": 1650000,
+        "permanentItems": {
+            "12": 2,
+            "13": 2
+        },
+        "consumableItems": {
+            "11": 2,
+            "12": 2,
+            "13": 2
+        },
+        "partyCurency": 400000,
+        "additionalPerPC": 100000
+    },
+    "13": {
+        "totalValue": 2500000,
+        "permanentItems": {
+            "13": 2,
+            "14": 2
+        },
+        "consumableItems": {
+            "12": 2,
+            "13": 2,
+            "14": 2
+        },
+        "partyCurency": 600000,
+        "additionalPerPC": 150000
+    },
+    "14": {
+        "totalValue": 3650000,
+        "permanentItems": {
+            "14": 2,
+            "15": 2
+        },
+        "consumableItems": {
+            "13": 2,
+            "14": 2,
+            "15": 2
+        },
+        "partyCurency": 900000,
+        "additionalPerPC": 225000
+    },
+    "15": {
+        "totalValue": 5450000,
+        "permanentItems": {
+            "15": 2,
+            "16": 2
+        },
+        "consumableItems": {
+            "14": 2,
+            "15": 2,
+            "16": 2
+        },
+        "partyCurency": 1300000,
+        "additionalPerPC": 325000
+    },
+    "16": {
+        "totalValue": 8250000,
+        "permanentItems": {
+            "16": 2,
+            "17": 2
+        },
+        "consumableItems": {
+            "15": 2,
+            "16": 2,
+            "17": 2
+        },
+        "partyCurency": 1300000,
+        "additionalPerPC": 500000
+    },
+    "17": {
+        "totalValue": 12800000,
+        "permanentItems": {
+            "17": 2,
+            "18": 2
+        },
+        "consumableItems": {
+            "16": 2,
+            "17": 2,
+            "18": 2
+        },
+        "partyCurency": 3000000,
+        "additionalPerPC": 750000
+    },
+    "18": {
+        "totalValue": 208000,
+        "permanentItems": {
+            "18": 2,
+            "19": 2
+        },
+        "consumableItems": {
+            "17": 2,
+            "18": 2,
+            "19": 2
+        },
+        "partyCurency": 4800000,
+        "additionalPerPC": 1200000
+    },
+    "19": {
+        "totalValue": 35500000,
+        "permanentItems": {
+            "19": 2,
+            "20": 2
+        },
+        "consumableItems": {
+            "18": 2,
+            "19": 2,
+            "20": 2
+        },
+        "partyCurency": 8000000,
+        "additionalPerPC": 2000000
+    },
+    "20": {
+        "totalValue": 49000000,
+        "permanentItems": {
+            "20": 4
+        },
+        "consumableItems": {
+            "19": 2,
+            "20": 2
+        },
+        "partyCurency": 14000000,
+        "additionalPerPC": 3500000
+    }
+}
