@@ -89,7 +89,7 @@ export default function handler(
             responseBody.push(x)
         }
 
-        res.status(200).json({ equipment: responseBody })
+        return res.status(200).json({ equipment: responseBody })
     }
 
     const response: Equipment[] = []
@@ -97,5 +97,5 @@ export default function handler(
         const x = data[Math.floor(Math.random() * data.length)]
         response.push(x)
     }
-    res.status(200).json({ equipment: response })
+    return res.status(200).json({ equipment: response })
 }

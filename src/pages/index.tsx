@@ -6,7 +6,7 @@ import { LevelSelect } from '@/components/level-select'
 import { EquipmentList } from '@/components/equipment-list'
 
 const fetcher = (args: { url: string, filter: string, book: string }) => {
-  let filterString = '?filter=' + args.filter + '&book=' + args.book
+  let filterString = '?filter=' + encodeURI(args.filter) + '&book=' + encodeURI(args.book)
   return fetch(args.url + filterString).then(r => r.json())
 }
 
