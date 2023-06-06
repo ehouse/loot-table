@@ -37,7 +37,7 @@ export default function handler(
 
             const reducedSource = [...new Set(allSource)]
 
-            res.status(200).json(reducedSource)
+            return res.status(200).json(reducedSource)
         case "traits":
             const allTraits = data.flatMap((entry) => {
                 return entry.traits.map((x) => x.name)
@@ -45,7 +45,7 @@ export default function handler(
 
             const reducedTraits = [...new Set(allTraits)]
 
-            res.status(200).json(reducedTraits)
+            return res.status(200).json(reducedTraits)
         case "catagory":
             // Expanded catagories shows catagory and subcategories
             if (req.query['expanded']) {
