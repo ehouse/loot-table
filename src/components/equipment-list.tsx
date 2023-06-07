@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { EquipmentBlock } from '@/components/equipment-block'
+import { EquipmentBlock, EquipmentBlockNeo } from '@/components/equipment-block'
 import { APIGetEquipment, Equipment } from "@/types/equipment";
 
 const MoreButton = (props: { increaseDisplayCount: () => void }) => (
@@ -28,8 +28,8 @@ export function EquipmentList(props: { data: APIGetEquipment | undefined, refres
         return <div>No Items</div>
     }
 
-    return <div css={{ paddingTop: '8px' }}>
-        {data.equipment.slice(0, displayCount).map((item) => (<EquipmentBlock key={item.url} equipment={item} />))}
+    return <div css={{ paddingTop: '8px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
+        {data.equipment.slice(0, displayCount).map((item) => (<EquipmentBlockNeo key={item.url} equipment={item} />))}
         <div css={{ display: 'flex', gap: '8px' }}>
             <button onClick={props.refresh} css={{ border: '0', padding: '0px 24px', fontSize: '24px' }}>↻</button>
             {displayCount < 10 && <MoreButton increaseDisplayCount={() => setDisplayCount((state) => (++state))} />}
