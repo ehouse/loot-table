@@ -4,6 +4,7 @@
   --text-primary: rgba(255, 255, 255, 1);
   --text-secondary: rgba(255, 255, 255, 0.7);
   --text-suble: rgba(255, 255, 255, 0.2);
+  --block-glow: 0px 0px 5px 1px hsl(253deg 29% 38%);
   --logo-gradient: conic-gradient(#CA4246 16.666%,
       #E16541 16.666%,
       #E16541 33.333%,
@@ -15,12 +16,11 @@
       #476098 83.333%,
       #A7489B 83.333%);
   --equiptment-block-gradient: linear-gradient(45deg,
-      hsl(40deg 100% 67%) 0%,
+      hsl(40deg 100% 57%) 0%,
       hsl(19deg 100% 70%) 1%,
       hsl(353deg 69% 67%) 7%,
       hsl(326deg 34% 53%) 18%,
       hsl(272deg 24% 43%) 35%,
-      hsl(218deg 41% 30%) 56%,
       hsl(253deg 29% 38%) 73%,
       hsl(296deg 34% 38%) 86%,
       hsl(326deg 53% 43%) 94%,
@@ -29,20 +29,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --equiptment-block-gradient: linear-gradient(45deg,
-        hsl(40deg 100% 67%) 0%,
-        hsl(19deg 100% 70%) 1%,
-        hsl(353deg 69% 67%) 7%,
-        hsl(326deg 34% 53%) 18%,
-        hsl(272deg 24% 43%) 35%,
-        hsl(218deg 41% 30%) 56%,
-        hsl(253deg 29% 38%) 73%,
-        hsl(296deg 34% 38%) 86%,
-        hsl(326deg 53% 43%) 94%,
-        hsl(342deg 65% 48%) 99%,
-        hsl(2deg 70% 53%) 100%);
-  }
+  :root {}
 }
 
 * {

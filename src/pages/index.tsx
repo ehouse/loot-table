@@ -13,7 +13,7 @@ const fetcher = (args: { url: string, filter: string, book: string }) => {
 export default function Home() {
   const [levelSelect, setLevelSelect] = useState(0)
   const [totalValue, setTotalValue] = useState(0)
-  const { data, mutate } = useSWRImmutable<APIGetEquipment>({ url: '/api/getEquipment', filter: JSON.stringify({ level: levelSelect }), book: 'core' }, fetcher)
+  const { data, mutate, isLoading } = useSWRImmutable<APIGetEquipment>({ url: '/api/getEquipment', filter: JSON.stringify({ level: levelSelect }), book: 'core' }, fetcher)
 
   const refreshData = () => { mutate() }
 
@@ -27,7 +27,7 @@ export default function Home() {
       <main css={{ width: '768px', margin: '0 auto' }}>
         <LevelSelect setLevel={setLevelSelect} levelSelect={levelSelect} />
         <div css={{ paddingTop: '2rem', color: 'rgba(255,255,255,0.7)' }}>Total: {totalValue / 100} GP</div>
-        <EquipmentList data={data} refresh={refreshData} setTotalValue={setTotalValue} />
+        <EquipmentList loading={isLoading} data={data} refresh={refreshData} setTotalValue={setTotalValue} />
       </main>
     </>
   )

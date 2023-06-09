@@ -1,28 +1,5 @@
-import React from 'react'
-
 import { Equipment } from "@/types/equipment";
 import { TraitChip } from './TraitChip';
-
-const Block = (props: { children: React.ReactNode }) => (
-    <div css={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '8px',
-        padding: '16px 0',
-        h3: {
-            fontSize: '20px'
-        },
-        '.block-title': {
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            gap: '8px'
-        },
-        '.catagory': {
-            color: 'rgba(255, 255, 255, 0.7)'
-        }
-    }}>{props.children}</div>
-)
 
 const LevelChip = (props: { level: number }) => (
     <div css={{
@@ -37,7 +14,7 @@ const LevelChip = (props: { level: number }) => (
     }}>{props.level}</div>
 )
 
-export function EquipmentBlockNeo(props: { equipment: Equipment }) {
+export function EquipmentBlock(props: { equipment: Equipment }) {
     const { equipment } = props
 
     return <div css={{
@@ -51,7 +28,7 @@ export function EquipmentBlockNeo(props: { equipment: Equipment }) {
         border: '2px solid',
         borderImageSlice: '1',
         borderImageSource: 'var(--equiptment-block-gradient)',
-        boxShadow: `2px 2px 14px 2px hsl(215, 28%, 32%, 0.5)`
+        boxShadow: 'var(--block-glow)'
     }}>
         <div css={{
             position: 'absolute',
@@ -86,24 +63,4 @@ export function EquipmentBlockNeo(props: { equipment: Equipment }) {
         </div>
         <div css={{ justifySelf: 'end', color: '#FFC857' }}>{(equipment.price ?? 0) / 100} gp</div>
     </div>
-}
-
-export function EquipmentBlock(props: { equipment: Equipment }) {
-    const { equipment } = props
-
-    return <Block>
-        <div className='block-title'>
-            <LevelChip level={equipment.level} />
-            <h3><a href={'https://2e.aonprd.com' + equipment.url} target="_blank">{equipment.name}</a></h3>
-        </div>
-        <div css={{ display: 'flex' }}>
-            <div css={{ flexGrow: 1 }}>
-                {equipment.item_category && <span className='catagory'>{equipment.item_category}</span>}
-                {equipment.item_subcategory && <span className='catagory'> &gt; {equipment.item_subcategory}</span>}
-            </div>
-            {equipment.traits.length > 0 && <div css={{ display: 'flex', gap: '4px', }}>{
-                equipment.traits.map((trait) => { return <TraitChip key={trait.name} {...trait} /> })
-            }</div>}
-        </div>
-    </Block>
 }
