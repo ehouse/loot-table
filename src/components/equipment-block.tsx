@@ -1,5 +1,6 @@
 import { Equipment } from "@/types/equipment";
 import { TraitChip } from './TraitChip';
+import { useViewItemProvider } from "@/context/view-item";
 
 const LevelChip = (props: { level: number }) => (
     <div css={{
@@ -14,7 +15,8 @@ const LevelChip = (props: { level: number }) => (
     }}>{props.level}</div>
 )
 
-export function EquipmentBlock(props: { equipment: Equipment }) {
+export function EquipmentBlock(props: { equipment: Equipment, index: number, refreshItem: () => void }) {
+    const { dispatch } = useViewItemProvider()
     const { equipment } = props
 
     return <div css={{
@@ -42,8 +44,8 @@ export function EquipmentBlock(props: { equipment: Equipment }) {
                 cursor: 'pointer'
             }
         }}>
-            <button css={{ paddingRight: '8px' }}>↻</button>
-            <button>X</button>
+            <button onClick={props.refreshItem} css={{ paddingRight: '8px' }}>↻</button>
+            <button onClick={() => dispatch({ type: 'dropIndex', index: props.index })}>X</button>
         </div>
         <LevelChip level={equipment.level} />
         <h3 css={{ fontSize: '24px' }}><a href={'https://2e.aonprd.com' + equipment.url} target="_blank">{equipment.name}</a></h3>

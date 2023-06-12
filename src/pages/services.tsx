@@ -71,5 +71,6 @@ export default function Services({ items }: InferGetStaticPropsType<typeof getSt
             ).map((service) => {
                 return <ServiceBlock key={service.name} service={service} />
             })}
-        </div></>
+        </div>
+    </>
 }
