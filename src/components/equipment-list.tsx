@@ -83,7 +83,7 @@ export function EquipmentList(props: { loading: boolean, serverState: APIGetEqui
     // Handle slow loads by showing skelton components 
     if (props.loading && state.displayItems.length === 0) {
         return <div css={{ paddingTop: '8px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
-            {state.displayItems.map(() => <SkeletonBlock />)}
+            {state.displayItems.map((_, index) => <SkeletonBlock key={index} />)}
         </div>
     }
 
