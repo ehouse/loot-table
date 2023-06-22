@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Head from 'next/head'
 import useSWRImmutable from 'swr/immutable'
 import { APIGetEquipment } from "@/types/equipment";
@@ -25,7 +25,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ViewItemProvider>
-        <main css={{ width: '768px', margin: '0 auto' }}>
+        <main css={{ width: '768px', margin: '0 auto', display: 'flex', flexDirection: 'column' }}>
           <LevelSelect setLevel={setLevelSelect} levelSelect={levelSelect} />
           <div css={{ paddingTop: '2rem', color: 'rgba(255,255,255,0.7)' }}>Total: {totalValue / 100} GP</div>
           <EquipmentList loading={isLoading} serverState={data} serverRefetch={mutate} setTotalValue={setTotalValue} />

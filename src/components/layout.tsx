@@ -12,7 +12,7 @@ const NavBarCSS = css({
     padding: '8px 0 2rem 0',
     color: 'rgba(255, 255, 255, 0.7)',
     '*:hover': { color: 'rgba(255, 255, 255, 0.9)' },
-    '*:first-child': {
+    '*:first-of-type': {
         fontSize: '32px',
         lineHeight: '26px',
         backgroundImage: 'var(--logo-gradient)',

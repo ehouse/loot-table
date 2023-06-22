@@ -7,7 +7,8 @@ export function LevelSelect(props: { setLevel: (level: number) => void, levelSel
                     <button
                         key={`Select ${i}`}
                         css={{
-                            padding: '4px 8px'
+                            padding: '4px 8px',
+                            borderColor: props.levelSelect === i ? 'var(--equiptment-block-gradient)' : ''
                         }}
                         onClick={() => { props.setLevel(i) }}>
                         {i < 20 ? i : `${i}+`}

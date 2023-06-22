@@ -4,14 +4,8 @@ import { EquipmentBlock } from '@/components/equipment-block'
 import { APIGetEquipment } from "@/types/equipment";
 import { useViewItemProvider } from '@/context/view-item';
 
-function usePrevious<T>(value: T) {
-    const ref = useRef<T>();
-
-    useEffect(() => {
-        ref.current = value;
-    });
-
-    return ref.current;
+const SkeletonBlock = () => {
+    return <div css={{ width: '100%', height: '70px', backgroundColor: '#334155', borderRadius: '12px' }} />
 }
 
 const MoreButton = (props: { appendItem: () => void, disabled: boolean }) => {
@@ -82,13 +76,15 @@ export function EquipmentList(props: { loading: boolean, serverState: APIGetEqui
      * Trigger total refresh of all visible data
      */
     const refreshData = () => {
-        console.log('Refresh Triggered')
         props.serverRefetch()
         dispatch({ type: 'setState', value: [] })
     }
 
-    if (props.loading) {
-        return <div>Loading...</div>
+    // Handle slow loads by showing skelton components 
+    if (props.loading && state.displayItems.length === 0) {
+        return <div css={{ paddingTop: '8px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
+            {state.displayItems.map(() => <SkeletonBlock />)}
+        </div>
     }
 
     if (state.displayItems.length === 0) {
@@ -105,5 +101,4 @@ export function EquipmentList(props: { loading: boolean, serverState: APIGetEqui
             <MoreButton appendItem={appendItem} disabled={state.displayItems.length >= 10} />
         </div>
     </div>
-
 }
